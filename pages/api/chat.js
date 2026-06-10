@@ -34,8 +34,9 @@ if (!response.ok) {
   return res.status(500).json({ error: err });
 }
 
-    const data = await response.json();
-    return res.status(200).json(data);
+const data = await response.json();
+console.log("[LoanCert] Anthropic response:", JSON.stringify(data));
+return res.status(200).json(data);
   } catch (error) {
     console.error("[LoanCert API] Error:", error);
     return res.status(500).json({ error: "Internal server error" });
